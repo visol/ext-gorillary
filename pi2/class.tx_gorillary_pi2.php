@@ -22,13 +22,7 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
 ************************************************************** */
-/**
- * [CLASS/FUNCTION INDEX of SCRIPT]
- *
- * Hint: use extdeveval to insert/update function index above.
- */
-require_once(PATH_tslib . 'class.tslib_pibase.php');
-require_once(t3lib_extMgm::extPath('gorillary').'pi1/class.tx_gorillary_pi1.php');
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Plugin 'Gorillary Gallary' for the 'gorillary' extension.
@@ -60,7 +54,7 @@ class tx_gorillary_pi2 extends tx_gorillary_pi1 {
 		$collections = $this->db->exec_SELECTgetRows('*', 'tx_gorillary_feedimports', "parentid=" . $contentId . " AND parenttable='tt_content' AND deleted=0 AND hidden=0");
 
 		if (count($collections) > 1) {
-			$cObj = t3lib_div::makeInstance('tslib_cObj');
+			$cObj = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 
 			foreach ($collections as $collection) {
 				$cObj->start($collection);
@@ -88,10 +82,10 @@ class tx_gorillary_pi2 extends tx_gorillary_pi1 {
 		$collections = $this->db->exec_SELECTgetRows('*', 'tx_gorillary_feedimports', "uid=" . $collectionId . " AND parenttable='tt_content' AND deleted=0 AND hidden=0");
 
 		if (count($collections)) {
-			$cObjCollection = t3lib_div::makeInstance('tslib_cObj');
+			$cObjCollection = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 			$cObjCollection->start($collections[0]);
 
-			$cObj = t3lib_div::makeInstance('tslib_cObj');
+			$cObj = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 			$images = $this->db->exec_SELECTgetRows('*', 'tx_gorillary_images', 'deleted=0 AND hidden=0 AND feedimport=' . $collectionId);
 
 			foreach ($images as $image) {
@@ -107,8 +101,3 @@ class tx_gorillary_pi2 extends tx_gorillary_pi1 {
 	}
 	
 }
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/gorillary/pi2/class.tx_gorillary_pi2.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/gorillary/pi2/class.tx_gorillary_pi2.php']);
-}
-?>

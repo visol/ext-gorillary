@@ -15,5 +15,3 @@ class user_imagefield {
 	}
 
 }
-
-?>

@@ -1,17 +1,17 @@
 <?php
 if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
-t3lib_extMgm::allowTableOnStandardPages("tx_gorillary_content_mm");
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages("tx_gorillary_content_mm");
 
-require_once t3lib_extMgm::extPath('gorillary').'lib/class.user_imagefield.php';
+require_once \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('gorillary').'lib/class.user_imagefield.php';
 
 
-$TCA['tx_gorillary_feedimports'] = array (
-	'ctrl' => $TCA['tx_gorillary_feedimports']['ctrl'],
+$GLOBALS['TCA']['tx_gorillary_feedimports'] = array (
+	'ctrl' => $GLOBALS['TCA']['tx_gorillary_feedimports']['ctrl'],
 	'interface' => array (
 		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,hidden,title,images'
 	),
-	'feInterface' => $TCA['tx_gorillary_feedimports']['feInterface'],
+	'feInterface' => $GLOBALS['TCA']['tx_gorillary_feedimports']['feInterface'],
 	'columns' => array (
 		'sys_language_uid' => array (
 			'exclude' => 1,
@@ -124,12 +124,12 @@ $TCA['tx_gorillary_feedimports'] = array (
 );
 
 
-$TCA['tx_gorillary_collections'] = array (
-	'ctrl' => $TCA['tx_gorillary_collections']['ctrl'],
+$GLOBALS['TCA']['tx_gorillary_collections'] = array (
+	'ctrl' => $GLOBALS['TCA']['tx_gorillary_collections']['ctrl'],
 	'interface' => array (
 		'showRecordFieldList' => 'sys_language_uid,l10n_parent,l10n_diffsource,parentid,parenttable,title,images'
 	),
-	'feInterface' => $TCA['tx_gorillary_collections']['feInterface'],
+	'feInterface' => $GLOBALS['TCA']['tx_gorillary_collections']['feInterface'],
 	'columns' => array (
 		'sys_language_uid' => array (		
 			'exclude' => 1,
@@ -260,12 +260,12 @@ $TCA['tx_gorillary_collections'] = array (
 
 
 
-$TCA['tx_gorillary_images'] = array (
-	'ctrl' => $TCA['tx_gorillary_images']['ctrl'],
+$GLOBALS['TCA']['tx_gorillary_images'] = array (
+	'ctrl' => $GLOBALS['TCA']['tx_gorillary_images']['ctrl'],
 	'interface' => array (
 		'showRecordFieldList' => 'hidden,title,description,image'
 	),
-	'feInterface' => $TCA['tx_gorillary_images']['feInterface'],
+	'feInterface' => $GLOBALS['TCA']['tx_gorillary_images']['feInterface'],
 	'columns' => array (
         'sys_language_uid' => array (
 			'exclude' => 1,
@@ -383,4 +383,3 @@ $TCA['tx_gorillary_images'] = array (
 		'1' => array('showitem' => '')
 	)
 );
-?>

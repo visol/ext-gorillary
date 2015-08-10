@@ -6,7 +6,7 @@
 class tx_gorillary_collection_save_hook{
 
 	/**
-	 * @var t3lib_DB
+	 * @var \TYPO3\CMS\Core\Database\DatabaseConnection
 	 */
 	private $db;
 	private $collection;
@@ -150,4 +150,3 @@ class tx_gorillary_collection_save_hook{
 		$this->db->exec_UPDATEquery('tx_gorillary_collections', "uid='$collectionId'", $updateRecord);
 	}
 }
-?>

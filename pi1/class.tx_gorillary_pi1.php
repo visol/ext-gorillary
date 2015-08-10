@@ -22,12 +22,7 @@
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
 ************************************************************** */
-/**
- * [CLASS/FUNCTION INDEX of SCRIPT]
- *
- * Hint: use extdeveval to insert/update function index above.
- */
-require_once(PATH_tslib . 'class.tslib_pibase.php');
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Plugin 'Gorillary Gallary' for the 'gorillary' extension.
@@ -36,7 +31,7 @@ require_once(PATH_tslib . 'class.tslib_pibase.php');
  * @package	TYPO3
  * @subpackage	tx_gorillary
  */
-class tx_gorillary_pi1 extends tslib_pibase {
+class tx_gorillary_pi1 extends \TYPO3\CMS\Frontend\Plugin\AbstractPlugin {
 
 	// Same as class name
 	var $prefixId = 'tx_gorillary_pi1';
@@ -48,17 +43,17 @@ class tx_gorillary_pi1 extends tslib_pibase {
 	var $pi_checkCHash = true;
 	/**
 	 *
-	 * @var tslib_fe
+	 * @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
 	 */
 	protected $tsfe;
 	/**
 	 *
-	 * @var t3lib_DB
+	 * @var \TYPO3\CMS\Core\Database\DatabaseConnection
 	 */
 	protected $db;
 	/**
 	 *
-	 * @var tslib_cObj
+	 * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
 	 */
 	public $cObj;
 
@@ -90,7 +85,7 @@ class tx_gorillary_pi1 extends tslib_pibase {
 		// TODO: make use of hook objects
 		if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gorillary']['contentManipulation'])) {
 			foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['gorillary']['contentManipulation'] as $_classRef) {
-				$this->hookObjects[] = & t3lib_div::getUserObj($_classRef);
+				$this->hookObjects[] = & GeneralUtility::getUserObj($_classRef);
 			}
 		}
 
@@ -142,7 +137,7 @@ class tx_gorillary_pi1 extends tslib_pibase {
 			foreach ($this->conf['galleryView.']['additionalHeaderData.'] as $value) {
 			    $this->tsfe->additionalHeaderData[$this->prefixId] .= $value."\n";
 			}
-			$cObj = t3lib_div::makeInstance('tslib_cObj');
+			$cObj = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 
 			foreach ($collections as $collection) {
 				// if there is no collection overview image set
@@ -181,10 +176,10 @@ class tx_gorillary_pi1 extends tslib_pibase {
 		}
 		if (count($collections)) {
 			$collection = $collections[0];
-			$cObjStdWrap = t3lib_div::makeInstance('tslib_cObj');
+			$cObjStdWrap = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 			$cObjStdWrap->start($collection);
 
-			$cObj = t3lib_div::makeInstance('tslib_cObj');
+			$cObj = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 
 			$images = $this->getImagesByCollectionId($collectionId);
 			$filenames = explode(',', $collection['images']);
@@ -219,7 +214,7 @@ class tx_gorillary_pi1 extends tslib_pibase {
 	protected function getSingleView($imageId = null) {
 
 		$content = "";
-		$cObj = t3lib_div::makeInstance('tslib_cObj');
+		$cObj = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 		
 		// include the additional files into the header (e.g. some js files)
 		foreach ($this->conf['singleView.']['additionalHeaderData.'] as $value) {
@@ -249,8 +244,3 @@ class tx_gorillary_pi1 extends tslib_pibase {
 
 
 }
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/gorillary/pi1/class.tx_gorillary_pi1.php']) {
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/gorillary/pi1/class.tx_gorillary_pi1.php']);
-}
-?>

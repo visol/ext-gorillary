@@ -49,7 +49,7 @@ class tx_gorillary_pi2_wizicon {
                         $LL = $this->includeLocalLang();
 
                         $wizardItems['plugins_tx_test_pi2'] = array(
-                            'icon'=>t3lib_extMgm::extRelPath('gorillary').'pi2/wizicon.png',
+                            'icon'=>\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('gorillary').'pi2/wizicon.png',
                             'title'=>$LANG->getLLL('pi2_title',$LL),
                             'description'=>$LANG->getLLL('pi2_plus_wiz_description',$LL),
                             'params'=>'&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=gorillary_pi2'
@@ -64,17 +64,9 @@ class tx_gorillary_pi2_wizicon {
                      * @return    The array with language labels
                      */
                     function includeLocalLang()    {
-                        $llFile = t3lib_extMgm::extPath('gorillary').'locallang.xml';
-                        $LOCAL_LANG = t3lib_div::readLLXMLfile($llFile, $GLOBALS['LANG']->lang);
+                        $llFile = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('gorillary').'locallang.xml';
+                        $LOCAL_LANG = \TYPO3\CMS\Core\Utility\GeneralUtility::readLLfile($llFile, $GLOBALS['LANG']->lang);
 
                         return $LOCAL_LANG;
                     }
                 }
-
-
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/gorillary/pi2/class.tx_gorillary_pi2_wizicon.php'])    {
-    include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/gorillary/pi2/class.tx_gorillary_pi2_wizicon.php']);
-}
-
-?>
