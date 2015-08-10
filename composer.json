@@ -1,0 +1,8 @@
+{
+	"name": "ajado/gorillary",
+	"type": "typo3-cms-extension",
+	"description": "Gorillary",
+	"homepage": "https://github.com/visol/ext-gorillary",
+	"license": ["GPL-2.0+"],
+	"version": "0.3.0"
+}
