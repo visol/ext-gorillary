@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>database</type>
+        <description>Language labels for database tables/fields belonging to extension 'gorillary'</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tx_gorillary_collection_selection">Display media collections</label>
+            <label index="tx_gorillary_feedimports">Media feed import</label>
+            <label index="tx_gorillary_feedimports.feed_url">Media feed URL</label>
+            <label index="tx_gorillary_feedimports.title">Feed Title</label>
+            <label index="tx_gorillary_feedimports.image">Feed overview image</label>
+            <label index="tx_gorillary_feedimports.images">Imported images</label>
+            <label index="tx_gorillary_collections.image">Collection overview image</label>
+            <label index="tx_gorillary_collection">Media collection</label>
+            <label index="tx_gorillary_collections">Media collections</label>
+            <label index="tx_gorillary_collections.title">Collection Title</label>
+            <label index="tx_gorillary_collections.images">Collection images (after selecting images, press save to get metadata form)</label>
+            <label index="tx_gorillary_collections.images_meta">Image meta data</label>
+            <label index="tx_gorillary_collections.image">Collection overview image</label>
+            <label index="tx_gorillary_images">Image</label>
+            <label index="tx_gorillary_images.title">Title</label>
+            <label index="tx_gorillary_images.additional_files">Additional files</label>
+            <label index="tx_gorillary_images.description">Description</label>
+            <label index="tx_gorillary_images.image">Image</label>
+            <label index="tx_gorillary_images.link">Link</label>
+            <label index="tx_gorillary_content">MediaCollection Content</label>
+            <label index="tt_content.list_type_pi1">Gorillary Gallery</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <label index="tx_gorillary_collection_selection">Media Collections anzeigen</label>
+            <label index="tx_gorillary_feedimports">Media feed import</label>
+            <label index="tx_gorillary_feedimports.feed_url">Media feed URL</label>
+            <label index="tx_gorillary_collection">Media Collection</label>
+            <label index="tx_gorillary_collections">Media Collections</label>
+            <label index="tx_gorillary_collections.title">Collection Titel</label>
+            <label index="tx_gorillary_collections.images">Collection Bilder (Bildauswahl speichern um die Maske für die Bilder angezeigt zu bekommen)</label>
+            <label index="tx_gorillary_collections.images_meta">Zusätzliche Einstellungen für Bilder</label>
+            <label index="tx_gorillary_collections.image">Media Collection Bild</label>
+            <label index="tx_gorillary_images">Bild</label>
+            <label index="tx_gorillary_images.title">Titel</label>
+            <label index="tx_gorillary_images.additional_files">Zusätzliche Dateien</label>
+            <label index="tx_gorillary_images.description">Beschreibung</label>
+            <label index="tx_gorillary_images.image">Bild</label>
+            <label index="tx_gorillary_images.link">Verlinkung</label>
+            <label index="tt_content.list_type_pi1">Gorillary Gallery</label>
+        </languageKey>
+    </data>
+</T3locallang>

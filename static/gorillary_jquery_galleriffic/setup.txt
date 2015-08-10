@@ -1,0 +1,45 @@
+# use jquery gallerific extension http://www.twospy.com/galleriffic/index.html
+
+temp.gorillaryThumbnail < plugin.tx_gorillary_pi1.collectionView.thumbnail
+plugin.tx_gorillary_pi1.collectionView.thumbnail >
+plugin.tx_gorillary_pi1.collectionView.thumbnail = COA
+plugin.tx_gorillary_pi1.collectionView.thumbnail{
+    1=LOAD_REGISTER
+    1.img.cObject = IMG_RESOURCE
+    1.img.cObject{
+      file.import = uploads/tx_gorillary/
+      file.import.field = image
+      file.maxH = 600
+    }
+
+    10 < temp.gorillaryThumbnail
+    10.imageLinkWrap >
+    10.wrap >
+    10.stdWrap.dataWrap (
+		<li>
+			<a class="thumb" name="{field:title}" href="{register:img}" title="{field:title}">|</a>
+			<div class="caption">
+				{field:title}
+			</div>
+		</li>
+	)
+}
+
+
+plugin.tx_gorillary_pi1.collectionView.thumbnail.imageLinkWrap >
+plugin.tx_gorillary_pi1.collectionView.wrap (
+	<div id="controls"></div>
+	<div id="loading"></div>
+	<div id="slideshow"></div>
+	<div id="caption"></div>
+	<div id="thumbs">
+		<ul class="thumbs noscript">
+			|
+		</ul>
+	</div>
+)
+
+plugin.tx_gorillary_pi1.collectionView.additionalHeaderData.10 = <script type="text/javascript" src="typo3conf/ext/gorillary/js/gorillary.jquery.galleriffic.js"></script>
+plugin.tx_gorillary_pi1.collectionView.additionalHeaderData.20 = <script type="text/javascript" src="typo3conf/ext/gorillary/js/galleriffic-2.0/js/jquery.galleriffic.js"></script>
+plugin.tx_gorillary_pi1.collectionView.additionalHeaderData.30 = <script type="text/javascript" src="typo3conf/ext/gorillary/js/galleriffic-2.0/js/jquery.history.js"></script>
+plugin.tx_gorillary_pi1.collectionView.additionalHeaderData.40 = <script type="text/javascript" src="typo3conf/ext/gorillary/js/galleriffic-2.0/js/jquery.opacityrollover.js"></script>

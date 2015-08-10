@@ -1,0 +1,25 @@
+# use jquery colorbox extension http://colorpowered.com/colorbox/
+
+# sets a direct linkwrap for the image. this snipped is copied from gorillary direct image link static template
+temp.gorillaryThumbnail < plugin.tx_gorillary_pi1.collectionView.thumbnail
+plugin.tx_gorillary_pi1.collectionView.thumbnail >
+plugin.tx_gorillary_pi1.collectionView.thumbnail = COA
+plugin.tx_gorillary_pi1.collectionView.thumbnail{
+    1=LOAD_REGISTER
+    1.img.cObject = IMG_RESOURCE
+    1.img.cObject{
+      file.import = uploads/tx_gorillary/
+      file.import.field = image
+      file.maxH = 600
+    }
+
+    10 < temp.gorillaryThumbnail
+    10.imageLinkWrap >
+    10.wrap >
+    10.stdWrap.dataWrap = <li><a class="colorbox" rel="colorbox" href="{register:img}">|</a></li>
+}
+
+# includes the colorbox specific js and css
+plugin.tx_gorillary_pi1.collectionView.additionalHeaderData.10 = <script src="typo3conf/ext/gorillary/js/colorbox/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+plugin.tx_gorillary_pi1.collectionView.additionalHeaderData.20 = <script src="typo3conf/ext/gorillary/js/gorillary.jquery.colorbox.js" type="text/javascript"></script>
+plugin.tx_gorillary_pi1.collectionView.additionalHeaderData.30 = <link media="screen" rel="stylesheet" href="typo3conf/ext/gorillary/js/colorbox/example1/colorbox.css" />

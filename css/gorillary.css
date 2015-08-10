@@ -1,0 +1,20 @@
+.tx_gorillary_overlay{
+	position: absolute; 
+	top:0px; 
+	left: 0px; 
+	z-index:10;
+}
+.tx_gorillary_loader{
+	background: url(../images/loader.gif) center no-repeat;
+	height: 100px;
+	width: 100px;
+}
+.tx_gorillary_loader_container{
+	display: none;
+	background: url(../images/loader_bg.png) center no-repeat;
+	position: absolute;
+	top:0;
+	z-index:20;
+	width: 100px;
+	height: 100px;
+}
